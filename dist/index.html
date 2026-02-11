@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/introduction-to-oz/assets/favicon-CSWrjy6k.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to OZ</title>
+    <!-- Handle SPA routing for GitHub Pages -->
+    <script type="text/javascript">
+      // Check if we have a redirect route stored from 404.html
+      (function() {
+        var redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          // Clear the redirect storage
+          sessionStorage.removeItem('redirect');
+
+          // Ensure we're in the correct basename
+          var basePath = '/introduction-to-oz';
+          if (window.location.pathname.indexOf(basePath) === 0) {
+            // Use history API to navigate to the correct route without a page reload
+            var targetPath = basePath + redirect;
+            console.log('Redirecting to', targetPath);
+
+            // Add the route to the history
+            window.history.replaceState(null, null, targetPath);
+          }
+        }
+      })();
+    </script>
+    <style>
+       #root {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+      }
+    </style>
+    <script type="module" crossorigin src="/introduction-to-oz/assets/index-BM89aPv_.js"></script>
+    <link rel="stylesheet" crossorigin href="/introduction-to-oz/assets/index-BGTGZ53G.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
