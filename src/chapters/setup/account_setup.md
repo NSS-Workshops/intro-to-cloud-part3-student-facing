@@ -1,36 +1,55 @@
-## Configure AWS CLI Using Session Token
+You should have an email titled:
 
-1. Install the aws cli (If you have not already installed):
-  -For mac users: `brew install awscli`
-  -For windows users [Download the installer from aws](https://awscli.amazonaws.com/AWSCLIV2.msi)
-  -Check that the cli is installed with `aws --version`
+> **"Invitation to join AWS IAM Identity Center"**
 
-2. Configure your AWS CLI profile. You can run this from any directory in your terminal.
+<img width=700 src="./assets/aws_email.png"/>
 
-    ```bash
-    aws configure sso
-    ```
+- 🕒 **This invitation is valid for 7 days** — be sure to activate it promptly.
+- 📧 **Your username** is listed in that email.
+- 🔗 **Your AWS access portal URL**:  
+  [https://nss-se.awsapps.com/start/](https://nss-se.awsapps.com/start/)
 
-Follow the prompts to set up your sso profile. You will need the values listed here:
-  - You can name the session anything e.g. `cloud3-session`
-  - If prompted for Sso registration scopes just press enter
-  - The start url will be `https://nss-se.awsapps.com/start/` (This will redirect you to aws login in the browser. Login and and click allow access)
-  - Choose the `intro_to_cloud_3` role.
-  - Set the region to `us-east-2`.
-  - The output format will be `json`.
-  - Name the profile after the role `intro_to_cloud_3`.
-  - There should only be one account available to you, the cli should automatically use that account number.
+---
 
-Run:
-```bash
-export AWS_PROFILE=intro_to_cloud_3
-```
+### 🖼️ How to Access AWS
 
-This tells your terminal session to point to your newly created credentials
+- Follow the email instructions to provision your account and set a strong password.  
+- Once you're logged in, you'll see a screen like this:
+<img width="700" src="./assets/account_select.png" />
+
+- Click the triangle to reveal your available options,  
+then select the **`intro_to_cloud_3`** link
+
+At this point, you are now in your **student AWS account**.
+
+> 🧾 All resources you create here are **yours** and are **not shared** with other students.  
+> 👨‍🏫 Your instructor can access your account if support is needed.
+
+---
+
+### 🎓 About This Account
+
+This is your **student AWS account** for the duration of the course.  
+It includes access to the following AWS services:
+
+- update this 
+
+# Hello
+
+> 🚨 **Please check in with your instructor before launching any resources outside of class.**  
+> 🧹 Don’t forget to **delete your resources** at the end of the course (your instructor will show you how!).  
+
+> NSS will delete resources after the course is over — **please do not expect anything to stick around**.  
+> This is partly how we’re able to **keep this course free**.
 
 
-## Run Terraform Commands
+### ❓Trouble Logging In?
 
-- With the CLI, SSO into your AWS account using `aws sso login --profile=intro_to_cloud_3`
-- Run `terraform init`, `terraform validate`, `terraform plan`, and `terraform apply` commands from the rock-of-ages-infra-cloud3 project directory in your terminal. 
-- It is normal for terraform apply to take a few minutes. 
+If you didn’t receive the email or are having trouble accessing your account,  
+please reach out to your instructor **via Slack as soon as possible**.
+
+
+
+
+
+
