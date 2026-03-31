@@ -15,7 +15,7 @@ You should have an email titled:
 
 - Follow the email instructions to provision your account and set a strong password.  
 - Once you're logged in, you'll see a screen like this:
-<img width="700" src="./assets/account_select.png" />
+<img width="700" src=./assets/account_select.png" />
 
 - Click the triangle to reveal your available options,  
 then select the **`intro_to_cloud_3`** link

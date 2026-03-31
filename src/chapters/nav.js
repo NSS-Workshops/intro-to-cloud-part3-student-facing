@@ -1,15 +1,15 @@
 export const nav = [
   {
-    id: "example-module-1",
-    title: "Example Module 1",
+    id: "setup",
+    title: "Account Setup",
     description:
-      "Example module 1 description",
+      "AWS account setup and backend state setup",
     required: true,
   },
   {
-    id: "example-module-2",
-    title: "Example Module 2",
-    description:"Example module 2 description",
+    id: "ecs",
+    title: "ECS",
+    description:"Introduction to ECS and api deployment",
     required: true,
   },
 ]

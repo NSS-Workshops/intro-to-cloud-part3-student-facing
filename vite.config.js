@@ -33,7 +33,7 @@ export default defineConfig(({ mode }) => {
   };
 
   // Check if any image files exist before adding the smart copy plugin
-  const imagePattern = path.resolve(__dirname, 'src/sections/**/*.{png,jpg,jpeg,svg,gif,webp,avif,mp3,mp4,pdf,m4a}');
+  const imagePattern = path.resolve(__dirname, 'src/chapters/**/*.{png,jpg,jpeg,svg,gif,webp,avif,mp3,mp4,pdf,m4a}');
   const imageFiles = glob.sync(normalizePath(imagePattern));
   const hasImages = imageFiles.length > 0;
 
