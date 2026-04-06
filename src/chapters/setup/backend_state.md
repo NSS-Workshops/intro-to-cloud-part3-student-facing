@@ -51,6 +51,20 @@ This tells your terminal session to point to your newly created credentials.
 ## Run Terraform Commands
 
 - With the CLI, SSO into your AWS account using `aws sso login --profile=intro_to_cloud_3`
-- Run `terraform init`, `terraform validate`, `terraform plan`, and `terraform apply` commands from the backend-bootstrap project directory in your terminal. 
+- In your backend-bootstrap directory, run `terraform init`, `terraform validate`, `terraform plan`, and `terraform apply` commands from the backend-bootstrap project directory in your terminal. Enter `yes` when prompted. 
+- If you run into any terraform errors, please reach out to your instructor. 
+
+## Validate the Terraform 
+
+Validate with the console:
+  - Navigate to s3 in the AWS console and confirm your bucket was created. (make sure us-east-2 is set as your region)
+  - Navigate to dynamoDB in the console and confirm that your state locking table was created. 
+  - Navigate to IAM -> Roles -> github_oidc 
+
+Validate with the CLI:
+  - run `aws s3 ls` and you should see the name of your bucket in your terminal
+  - run `aws dynamodb list-tables`
+  - run `aws iam list-roles` 
+
 
 Now that this terraform is applied, we will not touch this project again for the remainder of the workshop. 
