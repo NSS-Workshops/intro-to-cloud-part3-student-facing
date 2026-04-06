@@ -2,15 +2,21 @@
 
 ## Get the repo
 
-For this workshop, we have divided our terraform configurations between our project repositories. This is a common design you will see at some companies as it allows for easier integration of terraform into CICD pipelines and github actions. Also, in a way, it follows the single responsibility principle.
+For this workshop, you will see later that we have divided our terraform configurations between our project repositories. This is a common design you will see at some companies as it allows for easier integration of terraform into CICD pipelines and github actions. 
 
 But here we run into a chicken or the egg scenario. We need a backend state configuration to run terraform in github actions, therefore the backend state configuration needs to already exist before we run our actions. Therefore, this will be the only terraform config that we apply manually (locally) in this workshop. 
 
-Go to this repo and click the green "Use this template" button at the top and choose "Create a new repository". In the dropdown under Owner, choose your github account. You can use the same Repository name or create your own. Click "Create Repository"
+Repo: [backend-bootstrap](https://github.com/NSS-Workshops/backend-bootstrap)
 
-[backend-bootstrap](https://github.com/NSS-Workshops/backend-bootstrap)
+- Go to the repo and click the green "Use this template" button at the top and choose "Create a new repository". In the dropdown under Owner, choose your github account. You can use the same Repository name or create your own. Click "Create Repository"
 
-Clone your repo locally
+- Clone your repo locally
+
+## Update Variables
+
+In `variables.tf` update `your-github-username` to your username and update `rock-of-ages-terraform-state-your-initials` to include your initials at the end. Remember s3 bucket names must be globally unique and your github username IS case sensitive. 
+
+
 
 ## Configure AWS CLI Using Session Token
 

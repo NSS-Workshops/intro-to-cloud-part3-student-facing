@@ -2,7 +2,10 @@ Let's deploy our api using CICD and github actions.
 
 ## Create Github Secrets
 
-By now you should be somewhat familiar with the github actions yaml files found under .github/workflows. These files have changed since workshop 2 in a few ways: We are running terraform commands directly in our github runner, we have updated `deploy.yml` to support ecs rather than ec2, and we have added a new `destroy.yml` file. Try using an LLM to explain these files line by line. 
+By now you should be somewhat familiar with the github actions yaml files found under .github/workflows. These files have changed since workshop 2 in a few ways: 
+- We are running terraform commands directly in our github runner
+- We have updated `deploy.yml` to support ecs rather than ec2
+- There is a new `destroy.yml` file. Try using an LLM to explain these files line by line. 
 
 ## Create Github Secrets
 
@@ -43,7 +46,7 @@ Additionally:
 
 ## Optional Challenge
 Currently we only have the health check configured on our target group. If you navigate back to your tasks in ECS you will see health status as unknown. 
-Use whatever tools at your disposal, including LLMs, to make an update to your terraform configuration that would allow us to see health status on individual tasks. You will need to re-run the `terraform apply` command after making your configuration change 
+Use whatever tools at your disposal, including LLMs, to make an update to your terraform configuration that would allow us to see health status on individual tasks. You will need to make a push to main and retrigger github actions to apply your change. 
 
 
 ## At the end of each class
