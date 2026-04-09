@@ -44,6 +44,15 @@ Additionally:
 - On the left hand navigation click on target groups and click on the `rock-of-ages-api-tg`
 - Here you should see a status "Healthy" 
 
+## Test the API
+
+1. Go to the EC2 dashboard in the AWS console
+2. In the left sidebar, click: *Load Balancers*
+3. Click on your *Application Load Balancer*
+4. Look for *DNS name* and copy this to your clipboard
+5. Using a client of your choice (postman, yaak, bruno, etc) try a GET request to `http://<your-alb-dns-name>/health`
+6. You should see the task id returned in the response body. If you hit the health endpoint multiple times this task id should rotate between two different values. 
+
 ## Optional Challenge
 Currently we only have the health check configured on our target group. If you navigate back to your tasks in ECS you will see health status as unknown. 
 Use whatever tools at your disposal, including LLMs, to make an update to your terraform configuration that would allow us to see health status on individual tasks. You will need to make a push to main and retrigger github actions to apply your change. 
