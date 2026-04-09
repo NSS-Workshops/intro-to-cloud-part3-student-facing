@@ -8,7 +8,9 @@ But here we run into a chicken or the egg scenario. We need a backend state conf
 
 Repo: [backend-bootstrap](https://github.com/NSS-Workshops/backend-bootstrap)
 
-- Go to the repo and click the green "Use this template" button at the top and choose "Create a new repository". In the dropdown under Owner, choose your github account. You can use the same Repository name or create your own. Click "Create Repository"
+1. Go to the repo and click the green "Use this template" button at the top and choose "Create a new repository". 
+2. In the dropdown under *Owner*, choose your github account. 
+3. You can use the same Repository name or create your own. Click "Create Repository"
 
 - Clone your repo locally
 
