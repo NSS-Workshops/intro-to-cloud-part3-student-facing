@@ -18,6 +18,11 @@ Clone your repo locally
 
  You can also explore the new changes pertaining to the rock image feature. Check out `models/rock_image.py` and `views/rock_image_view.py`.
 
+## Update Variables
+
+- In `variables.tf` replace `<your-unique-storage-bucket-name>` with a globally unique bucket name of your choice. This will be the S3 bucket that will hold the uploaded image files. Something like "rock-of-ages-image-storage" plus your initials would suffice. 
+- In `backend.tf` replace `<your-state-bucket-name>` with the name of the state bucket from your backend-bootstrap project from last class. 
+
 
 
 
