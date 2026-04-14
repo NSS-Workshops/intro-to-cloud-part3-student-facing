@@ -8,6 +8,7 @@ import accountSetup from "./setup/account_setup.md?raw";
 import backendState from "./setup/backend_state.md?raw";
 
 // ECS chapters
+import ecsExplained from "./ecs/ecs_explained.md?raw";
 import ecsTerraform from "./ecs/ecs_terraform.md?raw";
 import apiDeploy from "./ecs/api_deploy.md?raw";
 
@@ -42,17 +43,25 @@ export const chapters = [
   },
   {
     id: moduleTwoId + "-page-1",
-    title: 'ECS in Terraform',
+    title: 'What is ECS?',
     sectionId: moduleTwoId,
     previousChapterId: null,
-    content: ecsTerraform,
+    content: ecsExplained,
     exercise: null
   },
   {
     id: moduleTwoId + "-page-2",
-    title: 'Deploying to ECS',
+    title: 'ECS in Terraform',
     sectionId: moduleTwoId,
     previousChapterId: moduleTwoId + "-page-1",
+    content: ecsTerraform,
+    exercise: null
+  },
+  {
+    id: moduleTwoId + "-page-3",
+    title: 'Deploying to ECS',
+    sectionId: moduleTwoId,
+    previousChapterId: moduleTwoId + "-page-2",
     content: apiDeploy,
     exercise: null
   },
