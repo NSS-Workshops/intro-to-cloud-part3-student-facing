@@ -9,7 +9,7 @@ export const nav = [
   {
     id: "ecs",
     title: "ECS",
-    description:"Introduction to ECS and api deployment",
+    description:"Learn what ECS is, how it works, and deploy the Rock of Ages API using Fargate and GitHub Actions",
     required: true,
   },
   {
