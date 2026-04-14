@@ -90,12 +90,8 @@ None of this means EC2 is the wrong tool — it has its place. But for running a
 
 ## How It All Fits Together
 
-```
-Cluster: rock-of-ages-api
-└── Service: rock-of-ages-api-service
-    ├── Task (running container) ──┐
-    └── Task (running container) ──┴──> Load Balancer ──> Internet
-```
+
+<img width=700 src="./ecs_diagram.png"/>
 
 1. You push your Docker image to a container registry (ECR).
 2. Your task definition points to that image.
