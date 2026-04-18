@@ -33,3 +33,5 @@ memory-bank/
 context_portal/
 memory-bank/
 CLAUDE.md
+architecture-diagrams.md
+sqs-plan.md
