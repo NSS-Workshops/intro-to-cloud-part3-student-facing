@@ -19,6 +19,7 @@ Check out the new service in `src/services/rockImageService.js`. Here you'll fin
 
 1. In the project, navigate to terraform/variables.tf 
 2. Replace `your-unique-client-bucket-name` with a unique bucket name to host our client front end. 
+3.  In terraform/backend.tf Replace `<your-state-bucket-name>` with your state bucket name. You can find this in either your backend bootstrap terraform configuration or visit S3 in the AWS console. 
 
 ## Create Github Secrets
 
@@ -29,14 +30,14 @@ Try looking at the yaml files to determine which github secrets you need to crea
 
 ### Required Secrets
 
--AWS_REGION
--OIDC_ROLE_TO_ASSUME
+- AWS_REGION (us-east-2)
+- OIDC_ROLE_TO_ASSUME ((ARN of the github_oidc role in IAM))
 
 </details>
 
 ## Trigger deployment
 
-1. Update `.env` by replacing `<your-alb-dns-name>` 
+1. Update `.env` by replacing `<your-alb-dns-name>`. Remember you can find this value under application load balancers in the ec2 console.  
 2. Make a push to main
 3. In github, go to actions and find the workflow. Verify it is completed and successful.
 4. In the AWS console, navigate to the s3 dashboard.

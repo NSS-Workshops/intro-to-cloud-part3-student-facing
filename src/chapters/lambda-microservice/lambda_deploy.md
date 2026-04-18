@@ -19,6 +19,7 @@ Use an LLM to help walk you through the project. The lambda function itself is i
 
 1. In the project, navigate to terraform/variables.tf 
 2. Replace `your-image-bucket-name` with the same name you used for your s3 bucket to hold images that was created as part of the api repository.  
+3. In terraform/backend.tf Replace `<your-state-bucket-name>` with your state bucket name. You can find this in either your backend bootstrap terraform configuration or visit S3 in the AWS console. 
 
 ## Create Github Secrets
 
@@ -29,8 +30,8 @@ Try looking at the yaml files to determine which github secrets you need to crea
 
 ### Required Secrets
 
--AWS_REGION
--OIDC_ROLE_TO_ASSUME
+- AWS_REGION (us-east-2)
+- OIDC_ROLE_TO_ASSUME (ARN of the github_oidc role in IAM)
 
 </details>
 

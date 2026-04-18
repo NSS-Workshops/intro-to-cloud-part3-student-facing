@@ -16,9 +16,9 @@ Try looking at the yaml files to determine which github secrets you need to crea
 
 ### Required Secrets
 
--AWS_REGION (us-east-2)
--OIDC_ROLE_TO_ASSUME (ARN of the github_oidc role in IAM)
--DB_PASSWORD (This can be any password, you are setting it here in secrets)
+- AWS_REGION (us-east-2)
+- OIDC_ROLE_TO_ASSUME (ARN of the github_oidc role in IAM)
+- DB_PASSWORD (This can be any password, you are setting it here in secrets)
 
 </details>
 

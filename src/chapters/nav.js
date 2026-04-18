@@ -21,7 +21,25 @@ export const nav = [
   {
     id: "system-explorer",
     title: "Systems Exploration",
-    description:"Introduction to debugging and design in a distributed system",
+    description:"Deploy the client and observe the image upload feature end to end",
+    required: true,
+  },
+  {
+    id: "system-design",
+    title: "System Design",
+    description: "Understand the current architecture, identify the gap, and brainstorm solutions as a team",
+    required: true,
+  },
+  {
+    id: "sqs-worker",
+    title: "Decoupling with SQS",
+    description: "Implement an SQS-based worker to complete the image processing pipeline",
+    required: true,
+  },
+  {
+    id: "wrap-up",
+    title: "Wrap Up",
+    description: "Reflect on what you built, the principles you applied, and where to go from here",
     required: true,
   },
 ]
