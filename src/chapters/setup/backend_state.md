@@ -16,7 +16,10 @@ Repo: [backend-bootstrap](https://github.com/NSS-Workshops/backend-bootstrap)
 
 ## Update Variables
 
-In `variables.tf` update `your-github-username` to your username and update `rock-of-ages-terraform-state-your-initials` to include your initials at the end. Remember s3 bucket names must be globally unique and your github username IS case sensitive. 
+In `variables.tf`:
+- update `your-github-username` to your username (this is case sensitive)
+- update `rock-of-ages-terraform-state-your-initials` to include your initials at the end. Remember s3 bucket names must be globally unique.
+- update `rock-of-ages-image-storing-bucket-your-initials` to include your initials at the end. This also needs to be globally unique.  
 
 
 
