@@ -1,7 +1,7 @@
 export const nav = [
   {
     id: "setup",
-    title: "Account Setup",
+    title: "Getting Started",
     description:
       "AWS account setup and backend state setup",
     required: true,

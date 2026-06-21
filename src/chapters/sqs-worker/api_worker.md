@@ -227,13 +227,65 @@ resource "aws_ecs_service" "worker" {
 
 ## GitHub Actions Workflow
 
-Open `.github/workflows/deploy.yml`. Find the `env` block in the `build-and-push` job and add the two new lines:
+Open `.github/workflows/testBuildPush.yml`. Find the `env` block in the `build-and-push` job and add the two new lines:
+Make this same change in the `env` block in `destroy.yml` 
 
 ```yaml
 env:
   TF_VAR_db_password: ${{ secrets.DB_PASSWORD }}
   TF_VAR_sqs_queue_url: ${{ secrets.SQS_QUEUE_URL }}  # add this
   TF_VAR_sqs_queue_arn: ${{ secrets.SQS_QUEUE_ARN }}  # add this
+```
+
+Replace `.github/workflows/deploy.yml` with:
+
+```yaml
+name: Deploy to ECS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: ${{ secrets.OIDC_ROLE_TO_ASSUME }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Update ECS services
+        run: |
+          echo "Updating ECS services..."
+          aws ecs update-service \
+            --cluster rock-of-ages-cluster \
+            --service rock-of-ages-api-service \
+            --force-new-deployment \
+            --no-cli-pager
+
+          aws ecs update-service \
+            --cluster rock-of-ages-cluster \
+            --service rock-of-ages-worker-service \
+            --force-new-deployment \
+            --no-cli-pager
+
+      - name: Wait for services to stabilize
+        run: |
+          echo "Waiting for api service..."
+          aws ecs wait services-stable \
+            --cluster rock-of-ages-cluster \
+            --services rock-of-ages-api-service
+
+          echo "Waiting for worker service..."
+          aws ecs wait services-stable \
+            --cluster rock-of-ages-cluster \
+            --services rock-of-ages-worker-service
 ```
 
 ## Deploy

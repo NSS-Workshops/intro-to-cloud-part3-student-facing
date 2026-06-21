@@ -107,7 +107,7 @@ Find `aws_lambda_function.thumbnail_generator`. It already has an `environment` 
 
 ### 4. Add outputs
 
-Add these at the bottom of `main.tf` so the API Terraform can reference the queue:
+Add these at the bottom of `outputs.tf` so the API Terraform can reference the queue:
 
 ```hcl
 output "sqs_queue_url" {
@@ -121,7 +121,7 @@ output "sqs_queue_arn" {
 
 ## Deploy
 
-Push your changes to `main` to trigger the GitHub Actions workflow. Once complete, verify in the AWS console:
+Push your changes to `main` then manually trigger the `Deploy Lambda Thumbnail Generator` GitHub Actions workflow. Once complete, verify in the AWS console:
 
 1. Navigate to **SQS** — confirm the `thumbnail-complete` queue was created
 2. Navigate to **Lambda** → your function → **Configuration** → **Environment variables** — confirm `SQS_QUEUE_URL` is present
