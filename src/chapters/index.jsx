@@ -4,6 +4,8 @@ import { Checkpoint } from '@nss-workshops/nss-core';
 
 import {nav} from "./nav.js";
 // setup chapter
+import introToTheCourse from "./setup/intro_to_the_course.md?raw";
+import cloudNativeDesign from "./setup/cloud_native_design.md?raw";
 import accountSetup from "./setup/account_setup.md?raw";
 import backendState from "./setup/backend_state.md?raw";
 
@@ -45,17 +47,33 @@ const moduleSevenId = nav[6].id;
 export const chapters = [
   {
     id: moduleOneId + "-page-1",
-    title: 'Account Setup',
+    title: 'Introduction to the Course',
     sectionId: moduleOneId,
     previousChapterId: null,
-    content: accountSetup,
+    content: introToTheCourse,
     exercise: null
   },
   {
     id: moduleOneId + "-page-2",
+    title: 'What is Cloud Native Design?',
+    sectionId: moduleOneId,
+    previousChapterId: moduleOneId + "-page-1",
+    content: cloudNativeDesign,
+    exercise: null
+  },
+  {
+    id: moduleOneId + "-page-3",
+    title: 'Account Setup',
+    sectionId: moduleOneId,
+    previousChapterId: moduleOneId + "-page-2",
+    content: accountSetup,
+    exercise: null
+  },
+  {
+    id: moduleOneId + "-page-4",
     title: 'Setting Up for Backend State',
     sectionId: moduleOneId,
-    previousChapterId:  moduleOneId + "-page-1",
+    previousChapterId: moduleOneId + "-page-3",
     content: backendState,
     exercise: null
   },
