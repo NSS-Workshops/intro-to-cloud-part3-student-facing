@@ -13,6 +13,7 @@ import backendState from "./setup/backend_state.md?raw";
 import ecsExplained from "./ecs/ecs_explained.md?raw";
 import ecsTerraform from "./ecs/ecs_terraform.md?raw";
 import apiDeploy from "./ecs/api_deploy.md?raw";
+import ecsGlossary from "./ecs/ecs_glossary.md?raw";
 
 // Microservices chapters
 import whyMicroservices from "./lambda-microservice/why_microservices.md?raw"
@@ -99,6 +100,14 @@ export const chapters = [
     sectionId: moduleTwoId,
     previousChapterId: moduleTwoId + "-page-2",
     content: apiDeploy,
+    exercise: null
+  },
+  {
+    id: moduleTwoId + "-page-4",
+    title: 'ECS Glossary',
+    sectionId: moduleTwoId,
+    previousChapterId: moduleTwoId + "-page-3",
+    content: ecsGlossary,
     exercise: null
   },
   {
