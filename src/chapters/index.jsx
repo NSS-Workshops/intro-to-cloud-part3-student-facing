@@ -18,6 +18,7 @@ import ecsGlossary from "./ecs/ecs_glossary.md?raw";
 // Microservices chapters
 import whyMicroservices from "./lambda-microservice/why_microservices.md?raw"
 import lambdaDeploy from "./lambda-microservice/lambda_deploy.md?raw"
+import microserviceGlossary from "./lambda-microservice/microservice_glossary.md?raw"
 
 // System explorer chapters
 import clientDeploy from "./system-explorer/client_deploy.md?raw";
@@ -124,6 +125,14 @@ export const chapters = [
     sectionId: moduleThreeId,
     previousChapterId: moduleThreeId + "-page-1",
     content: lambdaDeploy,
+    exercise: null
+  },
+  {
+    id: moduleThreeId + "-page-3",
+    title: 'Microservices Glossary',
+    sectionId: moduleThreeId,
+    previousChapterId: moduleThreeId + "-page-2",
+    content: microserviceGlossary,
     exercise: null
   },
   {
