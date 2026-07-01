@@ -67,8 +67,52 @@ A few things to look for when reading or drawing a diagram like this:
 
 When you're debugging a distributed system, this kind of diagram is often the first thing you reach for. It helps you trace where a request enters the system, where it might get stuck, and which services are involved.
 
-## Let's Diagram Together
+---
 
-Your instructor will lead a live diagramming session where the class maps out this system together. You'll identify the components, trace the flow of an image upload step by step, and talk through where the gap is and what might fill it.
+## What Drives System Design Decisions?
 
-Come ready to participate — there are no wrong answers. The goal is to build a shared mental model of the system before we start changing it.
+Now that you can see the gap, the next question is: *how should we fill it?* There are almost always multiple technically valid solutions to a systems design problem. What separates a good decision from a bad one is understanding the forces at play.
+
+Here are the factors engineers weigh when making design decisions:
+
+### Cost
+
+Every service has a price tag. Some charge per request, some per hour, some by the amount of data stored or transferred. A solution that works at small scale can become expensive at large scale if you're not paying attention to how costs grow.
+
+Good system design asks: *how does this cost change as usage grows? Are we paying for idle capacity, or only for what we actually use?*
+
+### Scalability
+
+Can the solution handle more load without falling apart? A design that works for 10 users per day should ideally work for 10,000 — either automatically, or with predictable changes.
+
+Some solutions scale well horizontally (you add more instances and load is distributed). Others hit ceilings that require a rethink. Understanding *where* the bottleneck will be — before you hit it — is a core system design skill.
+
+### Reliability and Fault Tolerance
+
+What happens when something goes wrong? A reliable system degrades gracefully rather than failing completely. It can retry failed operations, recover from partial outages, and avoid losing data when a component goes down.
+
+Design decisions often trade off between simplicity and resilience. A direct synchronous call between two services is simple to reason about, but if the receiving service is down, the caller fails too.
+
+### Operational Complexity
+
+Every piece you add to a system is something that can break, something you need to monitor, and something a new engineer has to learn. Simpler systems are easier to debug, deploy, and hand off.
+
+This is why the right answer to a system design problem isn't always "add another service." Sometimes a simpler solution — even if it's slightly less optimal — is the better engineering call because it reduces the surface area of things that can go wrong.
+
+### Latency
+
+How fast does the system need to respond? Some operations need to complete within milliseconds (loading a page, submitting a form). Others can happen in the background over seconds or minutes (generating thumbnails, sending an email, generating a report).
+
+Distinguishing between work that needs to be synchronous and work that can be asynchronous is one of the most important decisions in system design. Forcing everything to be synchronous makes systems slow and fragile; going fully async where users need immediate feedback creates a confusing experience.
+
+### Maintainability
+
+Will a new engineer be able to understand this system in six months? Will *you* be able to understand it in six months?
+
+Clever solutions that are hard to explain are often a liability. A design that maps cleanly to the problem it's solving, uses well-understood patterns, and is documented with a diagram is far easier to evolve over time than one that requires deep tribal knowledge to operate.
+
+---
+
+These factors don't all point in the same direction — a solution that's maximally scalable might be expensive and complex; one that's cheap and simple might not hold up under load. System design is the practice of making those tradeoffs explicitly and intentionally, with eyes open to what you're giving up.
+
+Keep these in mind as you brainstorm solutions to the gap in our system.

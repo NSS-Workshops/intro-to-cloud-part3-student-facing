@@ -1,6 +1,10 @@
 Now, we are ready to deploy our client and test our new image upload feature end-to-end
 
-## Get the repo
+## Before you get started
+
+You will need your rock-of-ages-api up and running on ECS in order to test the client later. Start off class by triggering your github actions to test, build, push and deploy in your ECS repository. 
+
+## Get the client repo
 
 
 [rock-of-ages-client-cloud3](https://github.com/NSS-Workshops/rock-of-ages-client-cloud3)
@@ -37,7 +41,7 @@ Try looking at the yaml files to determine which github secrets you need to crea
 
 ## Trigger deployment
 
-1. Update `.env` by replacing `<your-alb-dns-name>`. Remember you can find this value under application load balancers in the ec2 console.  
+1. Update `.env` by replacing `<your-alb-dns-name>`. Remember you can find this value under application load balancers in the ec2 console (your ecs deployment is required for this step).  
 2. Make a push to main
 3. In github, go to actions and find the workflow. Verify it is completed and successful.
 4. In the AWS console, navigate to the s3 dashboard.

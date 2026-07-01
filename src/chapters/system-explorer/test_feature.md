@@ -19,7 +19,12 @@ Navigate to the **My Rocks** view. You should see your new rock listed — and n
 
 Try refreshing the page. Still processing.
 
-## What's Actually Happening
+### Become a System Explorer
+
+Now its your chance to become a real developer and track the gap in our feature across our distributed system. Before looking at the answer below try finding the gap on your own. You will learn vastly more this way. Use all the tools at your disposal to try and track the request across the client, api, and lambda microservice. Use diagramming to help visualize what is going on. Your instructor will also help by walking you through a diagramming session.  
+
+<details>
+<summary>Do Not Open Yet!</summary>
 
 The upload itself is working. Here's the full sequence of events behind the scenes:
 
@@ -34,3 +39,9 @@ And then Lambda exits — successfully — and nothing else happens.
 **The API never finds out the thumbnails are ready.** Lambda and the Django API are two separate, isolated services with no connection between them. Nothing ever updates the `RockImage` record in the database, so it stays in `processing` forever.
 
 This is the problem we're going to solve.
+
+</details>
+
+
+
+

@@ -23,6 +23,7 @@ import microserviceGlossary from "./lambda-microservice/microservice_glossary.md
 // System explorer chapters
 import clientDeploy from "./system-explorer/client_deploy.md?raw";
 import testFeature from "./system-explorer/test_feature.md?raw";
+import diagrammingBasics from "./system-explorer/diagramming_basics.md?raw";
 
 // System design chapters
 import thinkingInSystems from "./system-design/thinking_in_systems.md?raw";
@@ -33,6 +34,7 @@ import sqsExplained from "./sqs-worker/sqs_explained.md?raw";
 import sqsApproach from "./sqs-worker/sqs_approach.md?raw";
 import updatingLambda from "./sqs-worker/updating_lambda.md?raw";
 import apiWorker from "./sqs-worker/api_worker.md?raw";
+import sqsGlossary from "./sqs-worker/sqs_glossary.md?raw";
 
 // Wrap up chapters
 import wrapUp from "./wrap-up/wrap_up.md?raw";
@@ -152,6 +154,14 @@ export const chapters = [
     exercise: null
   },
   {
+    id: moduleFourId + "-page-3",
+    title: 'Diagramming Basics',
+    sectionId: moduleFourId,
+    previousChapterId: moduleFourId + "-page-2",
+    content: diagrammingBasics,
+    exercise: null
+  },
+  {
     id: moduleFiveId + "-page-1",
     title: 'Thinking in Systems',
     sectionId: moduleFiveId,
@@ -197,6 +207,14 @@ export const chapters = [
     sectionId: moduleSixId,
     previousChapterId: moduleSixId + "-page-3",
     content: apiWorker,
+    exercise: null
+  },
+  {
+    id: moduleSixId + "-page-5",
+    title: 'SQS Glossary',
+    sectionId: moduleSixId,
+    previousChapterId: moduleSixId + "-page-4",
+    content: sqsGlossary,
     exercise: null
   },
   {
