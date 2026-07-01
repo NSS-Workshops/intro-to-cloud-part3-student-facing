@@ -1,0 +1,17 @@
+This glossary contains important terms and concepts discussed in the Decoupling with SQS module. Understanding them will help solidify and deepen your understanding.
+
+| Term | Definition |
+|------|------------|
+| Message Queue | A data structure where one service drops messages in and another picks them up. Messages enter at the back and are processed from the front — first in, first out. In distributed systems, queues allow services to communicate without being directly connected. |
+| SQS (Amazon Simple Queue Service) | AWS's managed message queue. You create a queue and AWS handles availability, scaling, and durability. A message in SQS is a string (usually JSON) that one service puts in and another reads, processes, and deletes. |
+| Producer | The service that sends messages to a queue. In our system, Lambda is the producer — it publishes a completion message to SQS after thumbnails are generated. The producer doesn't need to know who will consume the message. |
+| Consumer | The service that reads and processes messages from a queue. In our system, the SQS worker running in ECS is the consumer — it polls the queue, processes each message, and deletes it when done. |
+| Long Polling | A strategy where the consumer asks SQS to wait up to 20 seconds before responding if the queue is empty, rather than returning immediately with nothing. This reduces unnecessary network calls and is the standard way to poll SQS. |
+| Visibility Timeout | When a consumer picks up a message, SQS temporarily hides it from all other consumers while it's being processed. If the consumer crashes before deleting it, the timeout expires and the message becomes visible again so it can be retried. |
+| Message Retention | The window of time SQS holds a message before automatically deleting it if no consumer has processed it. The default is 4 days; the maximum is 14. |
+| Tight Coupling | When one service depends directly on another being available to function. If Lambda called the API directly to signal completion, Lambda and the API would be tightly coupled — a slow or unavailable API would cause Lambda to fail. |
+| Decoupling | Services communicate through an intermediary (like a queue) rather than calling each other directly. The producer and consumer don't need to know about each other, and each can scale, fail, and deploy independently. |
+| Worker Process | A long-running background process that continuously polls a queue for messages and processes them one at a time. In our system, the worker is a separate ECS task running the same Docker image as the API but executing `worker.py` instead of the Django web server. |
+| Receipt Handle | A unique identifier that SQS assigns to each time a message is received by a consumer. It is required to delete the message after processing — it is not the same as the message ID, since the same message can be received multiple times if not deleted promptly. |
+| SNS (Simple Notification Service) | An AWS messaging service that pushes messages out to multiple subscribers simultaneously. Unlike SQS (where one consumer processes each message), SNS is designed for fan-out — one event notifying many receivers at once. |
+| EventBridge | An AWS event bus that routes messages to different targets based on rules. More flexible than SQS or SNS, and designed for event-driven architectures that need fine-grained routing. Higher complexity than SQS for a single producer/consumer use case. |
